@@ -1,10 +1,15 @@
 .header {
   background-color: black;
+  display : flex
 }
 
-.header > a {
+.header > .app-name > a {
   cursor: pointer;
   color: white;
   text-decoration: none;
+}
+
+.app-name {
+  padding-left: 16px ;
 }
 
