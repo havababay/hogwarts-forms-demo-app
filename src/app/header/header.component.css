@@ -1,0 +1,10 @@
+.header {
+  background-color: black;
+}
+
+.header > a {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+
