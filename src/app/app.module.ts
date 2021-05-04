@@ -12,7 +12,7 @@ import { ReportsListComponent } from './reports-list/reports-list.component';
   imports:      [ 
     BrowserModule, 
     ReactiveFormsModule,
-   // MaterialModule,
+    MaterialModule,
     RouterModule.forRoot([
       { path: '', component: ReportsListComponent }, ]),],
   declarations: [ AppComponent, HeaderComponent, ReportsListComponent ],
