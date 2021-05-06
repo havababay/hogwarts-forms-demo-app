@@ -1,4 +1,4 @@
-export const filterMetadata = [
+export const filtersMetadata = [
   {
     name: 'house',
     display_name: 'House',

@@ -7,7 +7,17 @@
   </p>
   <h2>Filters</h2>
   <div *ngFor="let filterControlGroup of filters().controls; let i = index">
-    Filter {{i}}
+    <mat-form-field>
+      <mat-label>Field</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let filterMetadata of filtersMetadata()" value="filterMetadata.name">
+          {{filterMetadata.display_name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-icon-button (click)="removeFilter(i)">
+        <mat-icon>clear</mat-icon>
+    </button>
   </div>
    <button mat-stroked-button (click)="addFilter($event)">
      <mat-icon>add</mat-icon> 

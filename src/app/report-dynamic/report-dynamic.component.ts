@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import { AddFilterDialogComponent } from '../add-filter-dialog/add-filter-dialog.component';
 import {FormBuilder, FormGroup, Validators, FormArray} from '@angular/forms';
+import { filtersMetadata } from '../../assets/data/filters-metadata';
 
 @Component({
   selector: 'app-report-dynamic',
@@ -22,14 +22,6 @@ export class ReportDynamicComponent implements OnInit {
 
 
   addFilter() : void {
-    /*console.log('add filter');
-    const dialogRef = this.dialog.open(AddFilterDialogComponent, {
-      width: '250px',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });*/
     this.filters().push(this.createFilterFormGroup());
   }
 
@@ -43,5 +35,13 @@ export class ReportDynamicComponent implements OnInit {
 
   filters() : FormArray {
     return this.reportForm.get('filters') as FormArray;
+  }
+
+  filtersMetadata() {
+    return filtersMetadata;
+  }
+
+  removeFilter(index : number) {
+    this.filters().removeAt(index);
   }
 }
