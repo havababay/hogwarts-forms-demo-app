@@ -6,6 +6,9 @@
     </mat-form-field>
   </p>
   <h2>Filters</h2>
+  <div *ngFor="let filterControlGroup of filters().controls; let i = index">
+    Filter {{i}}
+  </div>
    <button mat-stroked-button (click)="addFilter($event)">
      <mat-icon>add</mat-icon> 
      Add
