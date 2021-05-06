@@ -19,7 +19,7 @@
       <mat-form-field>
         <mat-label>Operator</mat-label>
         <mat-select formControlName="operator">
-          <mat-option *ngFor="let op of currentOperators(i)" value="op">
+          <mat-option *ngFor="let op of currentOperators(i)" [value]="op">
             {{operatorsName(op)}}
           </mat-option>
         </mat-select>
