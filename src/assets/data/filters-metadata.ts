@@ -1,11 +1,11 @@
-enum fieldType {
+export enum fieldType {
   Enum,
   String,
   Date,
   Boolean
 }
 
-enum fieldOperator {
+export enum fieldOperator {
   Equals,
   Contains,
   GreaterThan,
@@ -53,7 +53,7 @@ export const typeMetadata = new Map<fieldType, fieldOperator[]>([
 
 export const operatorMetadata = new Map<fieldOperator, string>([
   [fieldOperator.Equals,'Equal to (=)'],
-  [fieldOperator.Contains,''],
+  [fieldOperator.Contains,'Contains'],
   [fieldOperator.GreaterThan,'Greater than (>)'],
   [fieldOperator.LowerThan,'Lower than (<)'],
   [fieldOperator.GreaterThanOrEquals,'Greater than or equal to (>=)'],

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {FormBuilder, FormGroup, Validators, FormArray} from '@angular/forms';
-import { filtersMetadata } from '../../assets/data/filters-metadata';
+import { filtersMetadata, fieldType, fieldOperator, typeMetadata, operatorMetadata} from '../../assets/data/filters-metadata';
 
 @Component({
   selector: 'app-report-dynamic',
@@ -43,5 +43,23 @@ export class ReportDynamicComponent implements OnInit {
 
   removeFilter(index : number) {
     this.filters().removeAt(index);
+  }
+
+  currentOperators(i : number) : fieldOperator[] | undefined{
+    const fieldName = this.filters().at(i).get('name')?.value;
+    
+    const metadata = filtersMetadata.find(metadata => {
+      return metadata.name === fieldName;
+    });
+
+    if (metadata === undefined) {
+      return undefined;
+    }
+
+    return typeMetadata.get(metadata.type);
+  }
+
+  operatorsName(operator : fieldOperator) {
+    return operatorMetadata.get(operator);
   }
 }
