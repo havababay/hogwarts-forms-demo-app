@@ -9,6 +9,7 @@ import { reportsMetadata } from '../../assets/data/reports';
 })
 export class ReportComponent implements OnInit {
   report;
+  reportTitle;
 
   constructor(private route: ActivatedRoute,) { }
 
@@ -19,5 +20,7 @@ export class ReportComponent implements OnInit {
     this.report = reportsMetadata.find(report => {
       return report.id === Number(reportIdFromRoute);
     });
+
+    this.reportTitle = this.report.name;
   }
 }

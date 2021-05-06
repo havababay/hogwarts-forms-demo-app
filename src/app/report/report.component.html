@@ -1,8 +1,18 @@
-<div>
+<div class="report-form">
+  <form #reportForm="ngForm">  
+    <p>
+      <mat-form-field appearance="fill" class="report-field">
+        <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="reportTitle" required name="report-name">
+      </mat-form-field>
+    </p>
+  </form>
   <p>
-    <mat-form-field appearance="fill">
-      <mat-label>Name</mat-label>
-        <input matInput [value]="report.name">
-    </mat-form-field>
+    <button 
+      mat-raised-button 
+      class="save-button" 
+      [disabled]="!reportForm.dirty ||  !reportForm.valid">
+      Save
+    </button>
   </p>
 </div>
