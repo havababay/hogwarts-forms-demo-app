@@ -1,0 +1,20 @@
+<div class="report-form" [formGroup]="reportForm">
+  <p>
+    <mat-form-field appearance="fill" class="report-field">
+      <mat-label>Name</mat-label>
+        <input matInput formControlName="title" required>
+    </mat-form-field>
+  </p>
+  <h2>Filters</h2>
+   <button mat-stroked-button>
+     <mat-icon>add</mat-icon> 
+     Add
+    </button>
+  <p>
+    <button 
+      mat-raised-button 
+      class="save-button" [disabled]="!reportForm.dirty ||  !reportForm.valid">
+      Save
+    </button>
+  </p>
+</div>

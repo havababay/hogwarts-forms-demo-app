@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { ReportsListComponent } from './reports-list/reports-list.component';
 import { ReportComponent } from './report/report.component';
 import { ReportReactiveComponent } from './report-reactive/report-reactive.component';
+import { ReportDynamicComponent } from './report-dynamic/report-dynamic.component';
 
 @NgModule({
   imports:      [ 
@@ -21,8 +22,9 @@ import { ReportReactiveComponent } from './report-reactive/report-reactive.compo
     RouterModule.forRoot([
       { path: '', component: ReportsListComponent }, 
       { path: 'report/:reportId', component: ReportComponent },
-      { path: 'reportReactive/:reportId', component: ReportReactiveComponent }]),],
-  declarations: [ AppComponent, HeaderComponent, ReportsListComponent, ReportComponent, ReportReactiveComponent ],
+      { path: 'reportReactive/:reportId', component: ReportReactiveComponent },
+      { path: 'reportDynamic/:reportId', component: ReportDynamicComponent }]),],
+  declarations: [ AppComponent, HeaderComponent, ReportsListComponent, ReportComponent, ReportReactiveComponent, ReportDynamicComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
