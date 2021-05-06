@@ -18,4 +18,7 @@ export class ReportDynamicComponent implements OnInit {
   });
 
 
+  addFilter() : void {
+    console.log('add filter');
+  }
 }
