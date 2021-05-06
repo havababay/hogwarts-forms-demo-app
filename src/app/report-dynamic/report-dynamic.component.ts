@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import { AddFilterDialogComponent } from '../add-filter-dialog/add-filter-dialog.component';
 
 @Component({
   selector: 'app-report-dynamic',
@@ -8,7 +10,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class ReportDynamicComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -20,5 +22,12 @@ export class ReportDynamicComponent implements OnInit {
 
   addFilter() : void {
     console.log('add filter');
+    const dialogRef = this.dialog.open(AddFilterDialogComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }

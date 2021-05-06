@@ -11,6 +11,7 @@ import { ReportsListComponent } from './reports-list/reports-list.component';
 import { ReportComponent } from './report/report.component';
 import { ReportReactiveComponent } from './report-reactive/report-reactive.component';
 import { ReportDynamicComponent } from './report-dynamic/report-dynamic.component';
+import { AddFilterDialogComponent } from './add-filter-dialog/add-filter-dialog.component';
 
 @NgModule({
   imports:      [ 
@@ -24,7 +25,8 @@ import { ReportDynamicComponent } from './report-dynamic/report-dynamic.componen
       { path: 'report/:reportId', component: ReportComponent },
       { path: 'reportReactive/:reportId', component: ReportReactiveComponent },
       { path: 'reportDynamic/:reportId', component: ReportDynamicComponent }]),],
-  declarations: [ AppComponent, HeaderComponent, ReportsListComponent, ReportComponent, ReportReactiveComponent, ReportDynamicComponent ],
+  entryComponents: [AddFilterDialogComponent],
+  declarations: [ AppComponent, HeaderComponent, ReportsListComponent, ReportComponent, ReportReactiveComponent, ReportDynamicComponent, AddFilterDialogComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
