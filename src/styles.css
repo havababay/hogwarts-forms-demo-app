@@ -4,3 +4,8 @@
   height: 50px;
   width: 50px; 
 }
+
+.save-button {
+  background-color: black;
+  color: white;
+}
