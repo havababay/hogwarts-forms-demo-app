@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { reportsMetadata } from '../../assets/data/reports';
+import { reportsData } from '../../assets/data/reports';
 import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   id : number;
-  name: string;
+  title: string;
   updated_by : string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = reportsMetadata;
+const ELEMENT_DATA: PeriodicElement[] = reportsData;
 
 @Component({
   selector: 'app-reports-list',
@@ -16,9 +16,9 @@ const ELEMENT_DATA: PeriodicElement[] = reportsMetadata;
   styleUrls: ['./reports-list.component.css']
 })
 export class ReportsListComponent implements OnInit {
-  reportsList = reportsMetadata;
+  reportsList = reportsData;
   
-  displayedColumns: string[] = ['id', 'name', 'updated_by'];
+  displayedColumns: string[] = ['id', 'title', 'updated_by'];
   dataSource = ELEMENT_DATA;
 
   constructor(private router: Router) { }
