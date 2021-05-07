@@ -24,9 +24,9 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   <div class="new-report">  
-    <button mat-raised-button class="save-button">
+    <button mat-raised-button class="save-button" (click)="newReport()">
       <mat-icon>add_circle</mat-icon>
-        New Report
-      </button>
+      New Report
+    </button>
   </div>  
 </div>

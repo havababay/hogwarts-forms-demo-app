@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { reportsMetadata } from '../../assets/data/reports';
+import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   id : number;
@@ -20,9 +21,12 @@ export class ReportsListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'updated_by'];
   dataSource = ELEMENT_DATA;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  newReport(){
+    this.router.navigate(['/reportDynamic/new']);
+  }
 }
