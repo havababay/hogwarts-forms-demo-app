@@ -91,5 +91,8 @@ export class ReportDynamicComponent implements OnInit {
 
   saveReport() {
     console.log(this.reportForm.value);
+    //this.reportForm.reset(this.reportForm.value);
+    this.reportForm.markAsPristine();
+    this.reportForm.markAsUntouched();
   }
 }
