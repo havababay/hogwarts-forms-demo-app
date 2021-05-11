@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-report-reactive',
   templateUrl: './report-reactive.component.html',
   styleUrls: ['./report-reactive.component.css']
 })
-export class ReportReactiveComponent implements OnInit {
+export class ReportReactiveComponent{
 
   constructor(private fb: FormBuilder) { }
 
  reportForm = this.fb.group({
-    title: [''],
+    title: ['', [Validators.required]],
   });
-
-  ngOnInit() {
-  }
-
 }
