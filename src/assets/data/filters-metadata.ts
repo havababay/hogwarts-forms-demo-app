@@ -28,8 +28,8 @@ export const filtersMetadata = [
     type: fieldType.Date
   },
   {
-    name: 'is_full_blood',
-    display_name: 'Is Full Blood',
+    name: 'has_parents_approval',
+    display_name: 'Has Parents Approval',
     type: fieldType.Boolean
   },
   {
