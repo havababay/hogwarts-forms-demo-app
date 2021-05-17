@@ -69,6 +69,9 @@ export class ReportDynamicComponent implements OnInit {
 
   removeFilter(index : number) {
     this.filters().removeAt(index);
+
+    this.reportForm.markAsDirty();
+    this.reportForm.markAsTouched();
   }
 
   currentOperators(i : number) : fieldOperator[] | undefined{
