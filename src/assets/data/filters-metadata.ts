@@ -2,7 +2,8 @@ export enum fieldType {
   Enum,
   String,
   Date,
-  Boolean
+  Boolean,
+  Number
 }
 
 export enum fieldOperator {
@@ -20,6 +21,12 @@ export const filtersMetadata = [
     name: 'house',
     display_name: 'House',
     type: fieldType.Enum,
+    values : []
+  },
+    {
+    name: 'year',
+    display_name: 'Year',
+    type: fieldType.Number,
     values : []
   },
   {
@@ -44,6 +51,12 @@ export const typeMetadata = new Map<fieldType, fieldOperator[]>([
   [fieldType.Boolean, [fieldOperator.Equals]],
   [fieldType.String,[fieldOperator.Equals, fieldOperator.Contains]],
   [fieldType.Date, 
+      [fieldOperator.Equals, 
+       fieldOperator.GreaterThan, 
+       fieldOperator.GreaterThanOrEquals, 
+       fieldOperator.LowerThan, 
+       fieldOperator.LowerThanOrEquals]],
+  [fieldType.Number, 
       [fieldOperator.Equals, 
        fieldOperator.GreaterThan, 
        fieldOperator.GreaterThanOrEquals, 
