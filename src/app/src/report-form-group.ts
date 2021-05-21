@@ -1,6 +1,7 @@
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { Report } from '../../../assets/data/report';
-import { ReportFilter } from '../../../assets/data/report-filter';
+import { Report } from '../../assets/data/report';
+import { ReportFilter } from '../../assets/data/report-filter';
+
 import { ReportFilterFormGroup } from './report-filter-form-group';
 
 export class ReportFormGroup {

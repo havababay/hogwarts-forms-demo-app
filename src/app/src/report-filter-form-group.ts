@@ -1,5 +1,5 @@
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { ReportFilter } from "../../../assets/data/report-filter";
+import { ReportFilter } from "../../assets/data/report-filter";
 
 export class ReportFilterFormGroup {
   filterForm : FormGroup;
