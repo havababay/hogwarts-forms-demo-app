@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup, Validators, FormArray} from '@angular/forms';
 import { filtersMetadata, fieldType, fieldOperator, typeMetadata, operatorMetadata} from '../../assets/data/filters-metadata';
 import { reportsData } from '../../assets/data/reports';
 import { ActivatedRoute } from '@angular/router';
-import { Report } from '../../assets/data/report';
 import { ReportFormGroup } from './src/report-form-group';
 
 @Component({
