@@ -36,7 +36,7 @@ export class ReportValueAccessorFilterComponent implements ControlValueAccessor,
   }
 
   writeValue(obj: any): void {
-    this.filterForm.setValue(obj, {emitEvent: false})
+    this.filterForm.patchValue(obj);
   }
 
   registerOnChange(fn: any): void {
