@@ -48,7 +48,7 @@ export class ReportValueAccessorFilterComponent implements ControlValueAccessor,
   }
 
   currentOperators(i : number) : fieldOperator[] | undefined{
-    const fieldName = "house";//this.filters().at(i).get('name')?.value;
+    const fieldName = this.filterForm.get('name')?.value;
     
     const metadata = filtersMetadata.find(metadata => {
       return metadata.name === fieldName;
