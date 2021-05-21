@@ -5,13 +5,17 @@ import { ReportFilterFormGroup } from './report-filter-form-group';
 
 export class ReportFormGroup {
   reportForm: FormGroup;
-  private filtersFormGroup: ReportFilterFormGroup[];
+  private filtersFormGroup: ReportFilterFormGroup[] = [];
 
   constructor(private fb: FormBuilder, initialReport?: Report) {
     this.createFormGroup();
+
+    if (initialReport != null) {
+      this.report = initialReport;
+    }
   }
 
-  public set report(initialReport: Report) {
+  set report(initialReport: Report) {
     this.reportForm.patchValue(initialReport);
 
     initialReport.filters.forEach((filter, index) => {
@@ -20,7 +24,7 @@ export class ReportFormGroup {
   }
 
   addFilter() : void {
-    this.addFilter();
+    this.addFilterInternal();
   }
 
   removeFilter(index : number) {
@@ -35,11 +39,17 @@ export class ReportFormGroup {
     return this.reportForm.get('filters') as FormArray;
   }
 
-  public get report(): Report {
+  get report(): Report {
     return <Report>this.reportForm.value;
   }
 
-  private addFilterInternal(initialFilter : ReportFilter) {
+  reset() {
+    //this.reportForm.reset(this.reportForm.value);
+    this.reportForm.markAsPristine();
+    this.reportForm.markAsUntouched();
+  }
+
+  private addFilterInternal(initialFilter? : ReportFilter) {
     var filterFormGroup = new ReportFilterFormGroup(this.fb, initialFilter);
 
     this.filtersFormGroup.push(filterFormGroup);

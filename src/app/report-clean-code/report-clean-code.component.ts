@@ -4,6 +4,7 @@ import { filtersMetadata, fieldType, fieldOperator, typeMetadata, operatorMetada
 import { reportsData } from '../../assets/data/reports';
 import { ActivatedRoute } from '@angular/router';
 import { Report } from '../../assets/data/report';
+import { ReportFormGroup } from './src/report-form-group';
 
 @Component({
   selector: 'app-report-clean-code',
@@ -11,10 +12,7 @@ import { Report } from '../../assets/data/report';
   styleUrls: ['./report-clean-code.component.css']
 })
 export class ReportCleanCodeComponent implements OnInit {
-  reportForm = this.fb.group({
-        title: [''],
-        filters: this.fb.array([]),
-     });;
+  reportForm : ReportFormGroup;
 
   constructor(private fb: FormBuilder,private route: ActivatedRoute) { }
 
@@ -26,41 +24,15 @@ export class ReportCleanCodeComponent implements OnInit {
       return report.id === Number(reportIdFromRoute);
     });
 
-    if (report != null) {
-      this.loadData(report);
-    }
-  }
-
-  loadData(reportData : Report) { 
-    // Patch the flat data in the form.
-    this.reportForm.patchValue(reportData);
-    // Patch all requirements.
-    reportData.filters.forEach((filter, index) => {
-      // Create a formGroup that we will patch data to.
-      const filterFormGroup = this.createFilterFormGroup();
-      // Patch our value to the formGroup
-      filterFormGroup.patchValue(filter)
-      // Push our patched formGroup to our formArray
-      this.filters().push(filterFormGroup);
-    });
+    this.reportForm = new ReportFormGroup(this.fb, report);
   }
   
-
-
   addFilter() : void {
-    this.filters().push(this.createFilterFormGroup());
-  }
-
-  createFilterFormGroup(): FormGroup {
-    return this.fb.group({
-      name: ['', [Validators.required]],
-      operator: ['', [Validators.required]],
-      value: ['', [Validators.required]],
-    });
+    this.reportForm.addFilter();
   }
 
   filters() : FormArray {
-    return this.reportForm.get('filters') as FormArray;
+    return this.reportForm.filters();
   }
 
   filtersMetadata() {
@@ -68,10 +40,7 @@ export class ReportCleanCodeComponent implements OnInit {
   }
 
   removeFilter(index : number) {
-    this.filters().removeAt(index);
-
-    this.reportForm.markAsDirty();
-    this.reportForm.markAsTouched();
+    this.reportForm.filters();
   }
 
   currentOperators(i : number) : fieldOperator[] | undefined{
@@ -93,9 +62,7 @@ export class ReportCleanCodeComponent implements OnInit {
   }
 
   saveReport() {
-    console.log(this.reportForm.value);
-    //this.reportForm.reset(this.reportForm.value);
-    this.reportForm.markAsPristine();
-    this.reportForm.markAsUntouched();
+    console.log(this.reportForm.report);
+    this.reportForm.reset();
   }
 }

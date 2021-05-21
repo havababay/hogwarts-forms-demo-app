@@ -1,4 +1,4 @@
-<div class="report-form" [formGroup]="reportForm">
+<div class="report-form" [formGroup]="reportForm.reportForm">
   <p>
     <mat-form-field appearance="fill" class="report-title">
       <mat-label>Title</mat-label>
@@ -40,13 +40,13 @@
   <div class="report-buttons">
     <button 
       mat-raised-button 
-      class="save-button" [disabled]="!reportForm.dirty ||  !reportForm.valid"
+      class="save-button" [disabled]="!reportForm.reportForm.dirty ||  !reportForm.reportForm.valid"
       (click)="saveReport()">
       Save
     </button>
     <button 
       mat-raised-button 
-      class="save-button" [disabled]="!reportForm.valid">
+      class="save-button" [disabled]="!reportForm.reportForm.valid">
       Preview
     </button>
   </div>
