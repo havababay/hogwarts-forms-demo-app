@@ -11,4 +11,9 @@
 .save-button {
   background-color: black;
   color: white;
+  margin-right: 8px;
+}
+
+.report-buttons {
+  padding-top: 8px;
 }
