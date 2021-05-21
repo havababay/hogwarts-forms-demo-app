@@ -1,0 +1,25 @@
+<div> 
+  <mat-form-field>
+    <mat-label>Field</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let filterMetadata of filtersMetadata()" [value]="filterMetadata.name">
+        {{filterMetadata.display_name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Operator</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let op of currentOperators(i)" [value]="op">
+        {{operatorsName(op)}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Value</mat-label>
+      <input matInput required>
+  </mat-form-field>
+  <button mat-icon-button>
+      <mat-icon>clear</mat-icon>
+  </button>
+</div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators, FormArray} from '@angular/forms';
-import { filtersMetadata, fieldType, fieldOperator, typeMetadata, operatorMetadata} from '../../assets/data/filters-metadata';
+import {FormBuilder, FormArray} from '@angular/forms';
+import { filtersMetadata } from '../../assets/data/filters-metadata';
 import { reportsData } from '../../assets/data/reports';
 import { ActivatedRoute } from '@angular/router';
 import { ReportFormGroup } from '../src/report-form-group';
@@ -34,30 +34,8 @@ export class ReportValueAccessorComponent implements OnInit {
     return this.reportForm.filters();
   }
 
-  filtersMetadata() {
-    return filtersMetadata;
-  }
-
   removeFilter(index : number) {
     this.reportForm.filters();
-  }
-
-  currentOperators(i : number) : fieldOperator[] | undefined{
-    const fieldName = this.filters().at(i).get('name')?.value;
-    
-    const metadata = filtersMetadata.find(metadata => {
-      return metadata.name === fieldName;
-    });
-
-    if (metadata === undefined) {
-      return undefined;
-    }
-
-    return typeMetadata.get(metadata.type);
-  }
-
-  operatorsName(operator : fieldOperator) {
-    return operatorMetadata.get(operator);
   }
 
   saveReport() {

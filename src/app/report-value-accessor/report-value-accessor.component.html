@@ -7,30 +7,8 @@
   </p>
   <h2>Filters</h2>
   <ng-container *ngFor="let filterControlGroup of filters().controls; let i = index">
-    <div [formGroup]="filterControlGroup"> 
-      <mat-form-field>
-        <mat-label>Field</mat-label>
-        <mat-select formControlName="name">
-          <mat-option *ngFor="let filterMetadata of filtersMetadata()" [value]="filterMetadata.name">
-            {{filterMetadata.display_name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Operator</mat-label>
-        <mat-select formControlName="operator">
-          <mat-option *ngFor="let op of currentOperators(i)" [value]="op">
-            {{operatorsName(op)}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Value</mat-label>
-          <input matInput formControlName="value" required>
-      </mat-form-field>
-      <button mat-icon-button (click)="removeFilter(i)">
-          <mat-icon>clear</mat-icon>
-      </button>
+    <div> 
+      <app-report-value-accessor-filter></app-report-value-accessor-filter>
     </div>
   </ng-container>
    <button mat-stroked-button (click)="addFilter($event)">
