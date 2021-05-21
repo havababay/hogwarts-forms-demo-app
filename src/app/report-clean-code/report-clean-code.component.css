@@ -1,0 +1,19 @@
+.report-form {
+  min-width: 150px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.report-title {
+  width: 100%;
+}
+
+.save-button {
+  background-color: black;
+  color: white;
+  margin-right: 8px;
+}
+
+.report-buttons {
+  padding-top: 8px;
+}

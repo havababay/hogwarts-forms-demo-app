@@ -5,11 +5,11 @@ import { reportsData } from '../../assets/data/reports';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-report-dynamic',
-  templateUrl: './report-dynamic.component.html',
-  styleUrls: ['./report-dynamic.component.css']
+  selector: 'app-report-clean-code',
+  templateUrl: './report-clean-code.component.html',
+  styleUrls: ['./report-clean-code.component.css']
 })
-export class ReportDynamicComponent implements OnInit {
+export class ReportCleanCodeComponent implements OnInit {
   reportForm = this.fb.group({
         title: [''],
         filters: this.fb.array([]),
