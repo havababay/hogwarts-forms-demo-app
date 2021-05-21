@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators, FormArray} from '@angular/forms';
 import { filtersMetadata, fieldType, fieldOperator, typeMetadata, operatorMetadata} from '../../assets/data/filters-metadata';
 import { reportsData } from '../../assets/data/reports';
 import { ActivatedRoute } from '@angular/router';
+import { Report } from '../../assets/data/report';
 
 @Component({
   selector: 'app-report-clean-code',
@@ -30,7 +31,7 @@ export class ReportCleanCodeComponent implements OnInit {
     }
   }
 
-  loadData(reportData) { 
+  loadData(reportData : Report) { 
     // Patch the flat data in the form.
     this.reportForm.patchValue(reportData);
     // Patch all requirements.

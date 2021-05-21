@@ -1,6 +1,7 @@
 import { fieldOperator } from "./filters-metadata";
+import { Report } from "./report";
 
-export const reportsData = [
+export const reportsData : Report[] = [
   {
     id: 1,
     title: 'All Gryffindor Students',
