@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormArray, FormControl} from '@angular/forms';
-import { filtersMetadata } from '../../assets/data/filters-metadata';
 import { reportsData } from '../../assets/data/reports';
 import { ActivatedRoute } from '@angular/router';
 import { ReportFormGroup } from '../src/report-form-group';
+import { ReportFgCva } from './src/report-fg-cva';
 
 @Component({
   selector: 'app-report-value-accessor',
@@ -11,7 +11,7 @@ import { ReportFormGroup } from '../src/report-form-group';
   styleUrls: ['./report-value-accessor.component.css']
 })
 export class ReportValueAccessorComponent implements OnInit {
-  reportForm : ReportFormGroup;
+  reportForm : ReportFgCva;
 
   constructor(private fb: FormBuilder,private route: ActivatedRoute) { }
 
@@ -23,12 +23,12 @@ export class ReportValueAccessorComponent implements OnInit {
       return report.id === Number(reportIdFromRoute);
     });
 
-    this.reportForm = new ReportFormGroup(this.fb, report);
+    this.reportForm = new ReportFgCva(this.fb, report);
   }
   
   addFilter() : void {
-    //this.reportForm.addFilter();
-    this.reportForm.filters().push(new FormControl(""));
+    this.reportForm.addFilter();
+    //this.reportForm.filters().push(new FormControl(""));
   }
 
   filters() : FormArray {
