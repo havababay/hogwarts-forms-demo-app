@@ -31,20 +31,32 @@ export class ReportValueAccessorFilterComponent implements ControlValueAccessor,
 
   onTouched = () => {};
 
+  onChanged = () => {};
+
   validate(control: AbstractControl): ValidationErrors|null {
+    console.log('validate ' + this.filterForm.valid);
      return this.filterForm.valid ? null : {filterForm: 'Problems in filterForm!'};
   }
 
-  writeValue(obj: any): void {
-    this.filterForm.patchValue(obj);
+  writeValue(value: any): void {
+    console.log('write value ' + value);
+    if (value) {
+      this.filterForm.patchValue(value, {emitEvent: false});
+      this.onTouched();
+    }
   }
 
   registerOnChange(fn: any): void {
+    console.log('register on changes');
     this.filterForm.valueChanges.subscribe(fn);
   }
 
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
+  }
+
+  registerOnValidatorChange(fn: () => void): void {
+    this.filterForm.statusChanges.subscribe(fn);
   }
 
   currentOperators(i : number) : fieldOperator[] | undefined{

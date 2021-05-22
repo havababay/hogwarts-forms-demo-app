@@ -7,8 +7,11 @@
   </p>
   <h2>Filters</h2>
   <ng-container *ngFor="let filterControlGroup of filters().controls; let i = index">
-    <div> 
-      <app-report-value-accessor-filter [formGroup]="filterControlGroup"></app-report-value-accessor-filter>
+    <div formArrayName="filters"> 
+      <div>
+        <!--<app-report-value-accessor-filter [formGroupName]="i"></app-report-value-accessor-filter>-->
+        <app-report-value-accessor-filter [formControlName]="i"></app-report-value-accessor-filter>
+      </div>
     </div>
   </ng-container>
    <button mat-stroked-button (click)="addFilter($event)">
