@@ -59,6 +59,8 @@ export class ReportFgCva {
       this.reportForm.markAsDirty();
       this.reportForm.markAsTouched();
     }
+
+    console.log('addFilterInternal: ' + JSON.stringify(filterFormGroup.filterForm.value));
   }
 
   private createFormGroup() {

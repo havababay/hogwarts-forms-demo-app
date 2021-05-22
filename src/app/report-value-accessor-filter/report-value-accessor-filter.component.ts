@@ -39,11 +39,12 @@ export class ReportValueAccessorFilterComponent implements ControlValueAccessor,
   }
 
   writeValue(value: any): void {
-    console.log('write value ' + value);
+    console.log('write value ' + JSON.stringify(value));
     if (value) {
       this.filterForm.patchValue(value, {emitEvent: false});
       this.onTouched();
     }
+    console.log('write value end' + JSON.stringify(this.filterForm.value));
   }
 
   registerOnChange(fn: any): void {

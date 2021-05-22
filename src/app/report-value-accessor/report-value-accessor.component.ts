@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormArray, FormControl} from '@angular/forms';
+import {FormBuilder, FormArray, FormControl, Validators} from '@angular/forms';
 import { reportsData } from '../../assets/data/reports';
 import { ActivatedRoute } from '@angular/router';
 import { ReportFormGroup } from '../src/report-form-group';
@@ -28,7 +28,10 @@ export class ReportValueAccessorComponent implements OnInit {
   
   addFilter() : void {
     this.reportForm.addFilter();
-    //this.reportForm.filters().push(new FormControl(""));
+    /*this.reportForm.filters().push(this.fb.control({
+      name: ['', [Validators.required]],
+      operator: ['', [Validators.required]],
+    }));*/
   }
 
   filters() : FormArray {
