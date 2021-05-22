@@ -6,8 +6,6 @@ export class ReportFilterFgCva {
 
   constructor(private fb : FormBuilder, initialFilter? : ReportFilter) {
     this.createFormGroup();
-    //this.filterForm = new FormControl("");
-
 
     if (initialFilter != null) {
       this.filter = initialFilter;
@@ -17,11 +15,14 @@ export class ReportFilterFgCva {
   }
 
   private createFormGroup() {
-    this.filterForm = this.fb.control({
+    this.filterForm = new FormControl();
+    
+    // using the form builder initialize the value with a function, without it, error about disable.
+    /*this.fb.control({
       name: ['', [Validators.required]],
       operator: ['', [Validators.required]],
-      //value: ['', [Validators.required]],
-    });
+      value: [''],
+    });*/
   }
 
   public set filter(initialFilter : ReportFilter) {
