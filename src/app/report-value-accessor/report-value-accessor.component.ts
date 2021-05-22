@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormArray} from '@angular/forms';
+import {FormBuilder, FormArray, FormControl} from '@angular/forms';
 import { filtersMetadata } from '../../assets/data/filters-metadata';
 import { reportsData } from '../../assets/data/reports';
 import { ActivatedRoute } from '@angular/router';
@@ -27,7 +27,8 @@ export class ReportValueAccessorComponent implements OnInit {
   }
   
   addFilter() : void {
-    this.reportForm.addFilter();
+    //this.reportForm.addFilter();
+    this.reportForm.filters().push(new FormControl(""));
   }
 
   filters() : FormArray {

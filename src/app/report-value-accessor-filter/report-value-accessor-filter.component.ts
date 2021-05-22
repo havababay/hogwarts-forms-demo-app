@@ -59,6 +59,10 @@ export class ReportValueAccessorFilterComponent implements ControlValueAccessor,
     this.filterForm.statusChanges.subscribe(fn);
   }
 
+  setDisabledState?(isDisabled: boolean): void {
+    isDisabled ? this.filterForm.disable() : this.filterForm.enable();
+  }
+
   currentOperators(i : number) : fieldOperator[] | undefined{
     const fieldName = this.filterForm.get('name')?.value;
     
