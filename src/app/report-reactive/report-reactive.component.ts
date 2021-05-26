@@ -10,7 +10,7 @@ export class ReportReactiveComponent{
 
   constructor(private fb: FormBuilder) { }
 
- reportForm = this.fb.group({
+ hogwartsReportForm = this.fb.group({
     title: ['', [Validators.required]],
   });
 }

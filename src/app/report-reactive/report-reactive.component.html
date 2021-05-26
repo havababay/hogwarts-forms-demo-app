@@ -1,14 +1,15 @@
-<div class="report-form" [formGroup]="reportForm">
+<div class="report-form" [formGroup]="hogwartsReportForm">
     <p>
       <mat-form-field appearance="fill" class="report-field">
-        <mat-label>Name</mat-label>
+        <mat-label>Title</mat-label>
           <input matInput formControlName="title">
       </mat-form-field>
     </p>
   <p>
     <button 
-      mat-raised-button 
-      class="save-button" [disabled]="!reportForm.dirty ||  !reportForm.valid">
+      class="save-button" 
+      mat-raised-button
+      [disabled]="hogwartsReportForm.pristine ||  hogwartsReportForm.invalid">
       Save
     </button>
   </p>
