@@ -6,8 +6,8 @@
     </mat-form-field>
   </p>
   <h2>Filters</h2>
-  <ng-container *ngFor="let filterControlGroup of filters().controls; let i = index">
-    <div [formGroup]="filterControlGroup"> 
+  <ng-container *ngFor="let hogwartsFilterForm of filters().controls; let i = index">
+    <div [formGroup]="hogwartsFilterForm"> 
       <mat-form-field>
         <mat-label>Field</mat-label>
         <mat-select formControlName="name">
@@ -33,10 +33,10 @@
       </button>
     </div>
   </ng-container>
-   <button mat-stroked-button (click)="addFilter($event)">
-     <mat-icon>add</mat-icon> 
-     Add
-    </button>
+  <button mat-stroked-button (click)="addFilter($event)">
+    <mat-icon>add</mat-icon> 
+    Add
+  </button>
   <div class="report-buttons">
     <button 
       mat-raised-button 
