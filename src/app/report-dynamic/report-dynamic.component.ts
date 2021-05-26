@@ -11,7 +11,7 @@ import { Report } from '../../assets/data/report';
   styleUrls: ['./report-dynamic.component.css']
 })
 export class ReportDynamicComponent implements OnInit {
-  reportForm = this.fb.group({
+  hogwartsReportForm = this.fb.group({
         title: [''],
         filters: this.fb.array([]),
      });;
@@ -31,36 +31,15 @@ export class ReportDynamicComponent implements OnInit {
     }
   }
 
-  loadData(reportData : Report) { 
-    // Patch the flat data in the form.
-    this.reportForm.patchValue(reportData);
-    // Patch all requirements.
-    reportData.filters.forEach((filter, index) => {
-      // Create a formGroup that we will patch data to.
-      const filterFormGroup = this.createFilterFormGroup();
-      // Patch our value to the formGroup
-      filterFormGroup.patchValue(filter)
-      // Push our patched formGroup to our formArray
-      this.filters().push(filterFormGroup);
-    });
-  }
-  
-
-
   addFilter() : void {
-    this.filters().push(this.createFilterFormGroup());
-  }
+    this.filters().push(this.createHogwartsFilterFormGroup());
 
-  createFilterFormGroup(): FormGroup {
-    return this.fb.group({
-      name: ['', [Validators.required]],
-      operator: ['', [Validators.required]],
-      value: ['', [Validators.required]],
-    });
+    this.hogwartsReportForm.markAsDirty();
+    this.hogwartsReportForm.markAsTouched();
   }
 
   filters() : FormArray {
-    return this.reportForm.get('filters') as FormArray;
+    return this.hogwartsReportForm.get('filters') as FormArray;
   }
 
   filtersMetadata() {
@@ -70,8 +49,8 @@ export class ReportDynamicComponent implements OnInit {
   removeFilter(index : number) {
     this.filters().removeAt(index);
 
-    this.reportForm.markAsDirty();
-    this.reportForm.markAsTouched();
+    this.hogwartsReportForm.markAsDirty();
+    this.hogwartsReportForm.markAsTouched();
   }
 
   currentOperators(i : number) : fieldOperator[] | undefined{
@@ -93,9 +72,31 @@ export class ReportDynamicComponent implements OnInit {
   }
 
   saveReport() {
-    console.log(this.reportForm.value);
+    console.log(this.hogwartsReportForm.value);
     //this.reportForm.reset(this.reportForm.value);
-    this.reportForm.markAsPristine();
-    this.reportForm.markAsUntouched();
+    this.hogwartsReportForm.markAsPristine();
+    this.hogwartsReportForm.markAsUntouched();
+  }
+
+  private loadData(reportData : Report) { 
+    // Patch the flat data in the form.
+    this.hogwartsReportForm.patchValue(reportData);
+    // Patch all requirements.
+    reportData.filters.forEach((filter, index) => {
+      // Create a formGroup that we will patch data to.
+      const filterFormGroup = this.createHogwartsFilterFormGroup();
+      // Patch our value to the formGroup
+      filterFormGroup.patchValue(filter)
+      // Push our patched formGroup to our formArray
+      this.filters().push(filterFormGroup);
+    });
+  }
+
+  private createHogwartsFilterFormGroup(): FormGroup {
+    return this.fb.group({
+      name: ['', [Validators.required]],
+      operator: ['', [Validators.required]],
+      value: ['', [Validators.required]],
+    });
   }
 }
