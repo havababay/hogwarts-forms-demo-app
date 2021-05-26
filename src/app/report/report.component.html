@@ -1,5 +1,5 @@
 <div class="report-form">
-  <form #reportForm="ngForm">  
+  <form #hogwartsReportForm="ngForm">  
     <p>
       <mat-form-field appearance="fill" class="report-field">
         <mat-label>Name</mat-label>
@@ -12,7 +12,7 @@
     <button 
       mat-raised-button 
       class="save-button" 
-      [disabled]="!reportForm.dirty ||  !reportForm.valid">
+      [disabled]="hogwartsReportForm.pristine ||  hogwartsReportForm.invalid">
       Save
     </button>
   </p>
