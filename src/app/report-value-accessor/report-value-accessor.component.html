@@ -9,7 +9,6 @@
   <ng-container *ngFor="let filterControlGroup of filters().controls; let i = index">
     <div formArrayName="filters"> 
       <div>
-        <!--<app-report-value-accessor-filter [formGroupName]="i"></app-report-value-accessor-filter>-->
         <app-report-value-accessor-filter [formControlName]="i"></app-report-value-accessor-filter>
       </div>
     </div>
