@@ -15,7 +15,7 @@ export class ReportDynamicComponent implements OnInit {
   hogwartsReportForm = this.fb.group({
         title: ['', [Validators.required, VOLDEMORT_VALIDATOR]],
         filters: this.fb.array([]),
-     });;
+     });
 
   constructor(private fb: FormBuilder,private route: ActivatedRoute) { }
 
