@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { VOLDEMORT_VALIDATOR } from '../src/validators';
 
 @Component({
   selector: 'app-report-reactive',
@@ -11,6 +12,6 @@ export class ReportReactiveComponent{
   constructor(private fb: FormBuilder) { }
 
   hogwartsReportForm = this.fb.group({
-    title: ['', [Validators.required, Validators.pattern("^((?!Voldemort).)*$")]],
+    title: ['', [Validators.required, VOLDEMORT_VALIDATOR]],
   });
 }

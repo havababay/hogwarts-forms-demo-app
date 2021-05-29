@@ -4,6 +4,7 @@ import { filtersMetadata, fieldType, fieldOperator, typeMetadata, operatorMetada
 import { reportsData } from '../../assets/data/reports';
 import { ActivatedRoute } from '@angular/router';
 import { Report } from '../../assets/data/report';
+import { VOLDEMORT_VALIDATOR } from '../src/validators';
 
 @Component({
   selector: 'app-report-dynamic',
@@ -12,7 +13,7 @@ import { Report } from '../../assets/data/report';
 })
 export class ReportDynamicComponent implements OnInit {
   hogwartsReportForm = this.fb.group({
-        title: ['', [Validators.required, Validators.pattern("^((?!Voldemort).)*$")]],
+        title: ['', [Validators.required, VOLDEMORT_VALIDATOR]],
         filters: this.fb.array([]),
      });;
 

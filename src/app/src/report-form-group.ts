@@ -3,6 +3,7 @@ import { Report } from '../../assets/data/report';
 import { ReportFilter } from '../../assets/data/report-filter';
 
 import { ReportFilterFormGroup } from './report-filter-form-group';
+import { VOLDEMORT_VALIDATOR } from './validators';
 
 export class ReportFormGroup {
   reportForm: FormGroup;
@@ -64,7 +65,7 @@ export class ReportFormGroup {
 
   private createFormGroup() {
     this.reportForm = this.fb.group({
-      title: ['', [Validators.required, Validators.pattern("^((?!Voldemort).)*$")]],
+      title: ['', [Validators.required, VOLDEMORT_VALIDATOR]],
       filters: this.fb.array([])
     });
   }
