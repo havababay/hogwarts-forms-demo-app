@@ -1,4 +1,4 @@
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup ,Validators } from '@angular/forms';
 import { Report } from '../../assets/data/report';
 import { ReportFilter } from '../../assets/data/report-filter';
 
