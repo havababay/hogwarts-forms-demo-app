@@ -64,7 +64,7 @@ export class ReportFormGroup {
 
   private createFormGroup() {
     this.reportForm = this.fb.group({
-      title: [''],
+      title: ['', [Validators.required, Validators.pattern("^((?!Voldemort).)*$")]],
       filters: this.fb.array([])
     });
   }

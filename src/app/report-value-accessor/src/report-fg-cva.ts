@@ -1,4 +1,4 @@
-import { FormArray, FormBuilder, FormGroup } from "@angular/forms";
+import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Report } from "../../../assets/data/report";
 import { ReportFilter } from "../../../assets/data/report-filter";
 import { ReportFilterFgCva } from "./report-filter-fg-cva";
@@ -65,7 +65,7 @@ export class ReportFgCva {
 
   private createFormGroup() {
     this.reportForm = this.fb.group({
-      title: [''],
+      title: ['', [Validators.required, Validators.pattern("^((?!Voldemort).)*$")]],
       filters: this.fb.array([])
     });
   }

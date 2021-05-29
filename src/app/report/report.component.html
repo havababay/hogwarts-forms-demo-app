@@ -5,6 +5,7 @@
         <mat-label>Title</mat-label>
           <input matInput
                  name="report-title"
+                 pattern="^((?!Voldemort).)*$"
                  required 
                  [(ngModel)]="reportTitle">
       </mat-form-field>

@@ -12,7 +12,7 @@ import { Report } from '../../assets/data/report';
 })
 export class ReportDynamicComponent implements OnInit {
   hogwartsReportForm = this.fb.group({
-        title: [''],
+        title: ['', [Validators.required, Validators.pattern("^((?!Voldemort).)*$")]],
         filters: this.fb.array([]),
      });;
 
