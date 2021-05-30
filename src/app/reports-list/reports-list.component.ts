@@ -27,6 +27,6 @@ export class ReportsListComponent implements OnInit {
   }
 
   newReport(){
-    this.router.navigate(['/reportVA/new']);
+    this.router.navigate(['/reportDynamic/new']);
   }
 }

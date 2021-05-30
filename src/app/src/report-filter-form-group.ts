@@ -28,3 +28,24 @@ export class ReportFilterFormGroup {
     return <ReportFilter>this.filterForm.value;
   }
 }
+
+export function createHogwartsFilterFormGroup(
+    fb : FormBuilder, 
+    initialFilter? : ReportFilter) : FormGroup {
+  var filterForm = fb.group({
+      name: ['', [Validators.required]],
+      operator: ['', [Validators.required]],
+      value: ['', [Validators.required]],
+    });
+
+    if (initialFilter != null) {
+      filterForm.patchValue(initialFilter);
+    }
+
+    return filterForm;
+}
+
+export function createHogwartsFilterData(
+    filterForm : FormGroup) : ReportFilter {
+  return <ReportFilter>filterForm.value;
+}
