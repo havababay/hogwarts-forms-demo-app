@@ -38,17 +38,17 @@
     Add
   </button>
   <div class="report-buttons">
+      <button 
+      mat-raised-button 
+      class="save-button" [disabled]="hogwartsReportForm.invalid">
+      Preview
+    </button>
     <button 
       class="save-button"
       mat-raised-button 
       (click)="saveReport()"
       [disabled]="hogwartsReportForm.pristine || hogwartsReportForm.invalid">
       Save
-    </button>
-    <button 
-      mat-raised-button 
-      class="save-button" [disabled]="hogwartsReportForm.invalid">
-      Preview
     </button>
   </div>
 </div>
