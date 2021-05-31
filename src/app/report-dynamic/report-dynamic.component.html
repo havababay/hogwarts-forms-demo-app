@@ -8,7 +8,7 @@
   <h2>Filters</h2>
   <ng-container *ngFor="let hogwartsFilterForm of filters().controls; let i = index">
     <div [formGroup]="hogwartsFilterForm"> 
-      <mat-form-field>
+      <mat-form-field class="filter-field">
         <mat-label>Field</mat-label>
         <mat-select formControlName="name">
           <mat-option *ngFor="let filterMetadata of filtersMetadata()" [value]="filterMetadata.name">
@@ -16,7 +16,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field class="filter-field">
         <mat-label>Operator</mat-label>
         <mat-select formControlName="operator">
           <mat-option *ngFor="let op of currentOperators(i)" [value]="op">
@@ -24,7 +24,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+      <mat-form-field class="filter-field">
         <mat-label>Value</mat-label>
           <input matInput formControlName="value" required>
       </mat-form-field>
