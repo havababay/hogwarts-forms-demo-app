@@ -1,3 +1,8 @@
 .new-report {
-  align-: center;
+  align: center;
+  padding-top: 8px;
+}
+
+table {
+  width: 100%;
 }
